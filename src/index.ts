@@ -5,7 +5,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
  * Generates an index.html from a template
  * See: https://github.com/ampedandwired/html-webpack-plugin
  */
-export function generateIndexHtml(minify = true) {
+export function generateIndexHtml(minify = true, overrideOptions = {}) {
   return function generateIndexHtml(this: WebpackConfig): WebpackConfig {
     return {
       plugins: [
@@ -17,14 +17,14 @@ export function generateIndexHtml(minify = true) {
          *
          * See: https://github.com/ampedandwired/html-webpack-plugin
          */
-        new HtmlWebpackPlugin({
+        new HtmlWebpackPlugin(Object.assign({
           template: 'index.html',
           chunksSortMode: 'dependency',
           minify: minify ? {
             removeComments: true,
             collapseWhitespace: true
           } : undefined
-        }),
+        }, overrideOptions)),
       ].concat(get(this, 'plugins', []))
     }
   }
