@@ -5,7 +5,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
  * Generates an index.html from a template
  * See: https://github.com/ampedandwired/html-webpack-plugin
  */
-export function generateIndexHtml(minify = true, overrideOptions = {}) {
+export = function generateIndexHtml(minify = true, overrideOptions = {}) {
   return function generateIndexHtml(this: WebpackConfig): WebpackConfig {
     return {
       plugins: [
