@@ -1,4 +1,4 @@
-import {WebpackConfig, get} from '@easy-webpack/core'
+import {WebpackConfigWithMetadata, get} from '@easy-webpack/core'
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 /**
@@ -6,7 +6,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
  * See: https://github.com/ampedandwired/html-webpack-plugin
  */
 export = function generateIndexHtml({minify = true, overrideOptions = {}} = {}) {
-  return function generateIndexHtml(this: WebpackConfig): WebpackConfig {
+  return function generateIndexHtml(this: WebpackConfigWithMetadata): WebpackConfigWithMetadata {
     return {
       plugins: [
         /**
