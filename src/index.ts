@@ -23,7 +23,8 @@ export = function generateIndexHtml({minify = true, overrideOptions = {}} = {}) 
           minify: minify ? {
             removeComments: true,
             collapseWhitespace: true
-          } : undefined
+          } : undefined,
+          metadata: get(this, 'metadata', {})
         }, overrideOptions)),
       ].concat(get(this, 'plugins', []))
     }
